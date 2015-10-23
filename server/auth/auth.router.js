@@ -8,7 +8,7 @@ var User = require('../api/users/user.model');
 
 
 router.post('/login', function (req, res, next) {
-	User.findOne(req.body).exec()
+	User.findOne(req.body).select("+password").exec()
 	.then(function (user) {
 		if (!user) throw HttpError(401);
 		req.login(user, function () {
