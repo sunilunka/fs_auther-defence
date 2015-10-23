@@ -1,11 +1,19 @@
 'use strict';
 
+var sanitize = require("mongo-sanitize");
+
 var router = require('express').Router(),
 	_ = require('lodash');
 
 var HttpError = require('../../utils/HttpError');
 var User = require('./user.model');
 var Auth = require('../../utils/auth.middleware');
+
+
+
+router.use(function(req, res, next){
+	return sanitize(req.body);
+})
 
 router.param('id', function (req, res, next, id) {
 	User.findById(id).exec()

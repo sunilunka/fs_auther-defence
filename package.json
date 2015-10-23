@@ -4,8 +4,8 @@
   "description": "",
   "main": "server/index.js",
   "scripts": {
-    "start": "nodemon --watch server",
-    "seed": "node seed"
+    "seed": "node seed",
+    "start": "nodemon --watch server"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +14,7 @@
     "express": "^4.13.3",
     "express-session": "^1.11.3",
     "lodash": "^3.10.1",
+    "mongo-sanitize": "^1.0.0",
     "mongoose": "^4.1.10",
     "morgan": "^1.6.1",
     "passport": "^0.3.0",

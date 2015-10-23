@@ -21,16 +21,6 @@ router.post('/login', function (req, res, next) {
 router.post('/signup', function (req, res, next) {
 	User.create(req.body)
 	.then(function (user) {
-		crypto.randomBytes(128, function(err, salt) {
-			if(err) throw err;
-				salt = new Buffer(salt).toString("hex");
-				crypto.pbkdf2(user.password, salt, 7000, 256, function(err, hash){
-					if(err) throw err;
-					user.password = { salt: salt, 
-						hash: (new Buffer(hash).toString("hex"))
-					}
-				})
-			})
 		req.login(user, function () {
 			res.status(201).json(user);
 		})

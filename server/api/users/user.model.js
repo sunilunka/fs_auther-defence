@@ -24,24 +24,27 @@ var User = new mongoose.Schema({
 		required: true,
 		unique: true
 	},
-	password: String,
+	password: { type: String, select: false },
 	google: {
 		id: String,
 		name: String,
 		email: String,
-		token: String
+		token: String,
+		select: false
 	},
 	twitter: {
 		id: String,
 		name: String,
 		email: String,
-		token: String
+		token: String,
+		select: false
 	},
 	github: {
 		id: String,
 		name: String,
 		email: String,
-		token: String
+		token: String,
+		select: false
 	},
 	isAdmin: {
 		type: Boolean,
